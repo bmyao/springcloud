@@ -1,0 +1,26 @@
+server:
+  port: 9992
+
+spring:
+  application:
+    name: dyt-zuul
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka9991.com:9991/eureka/
+  instance:
+    instance-id: zuul-9992.com     #自定义服务名称信息
+    prefer-ip-address: true
+
+
+zuul:
+  #refix: /dyt  #添加统一前缀URL地址
+  ignored-services: "**"   #忽略所有服务地址，映射的可以使用，忽略单个请直接填写服务名字例如dyt-server-demo
+  #routes:
+    #mydept.serviceId: dyt-server-demo  #服务的名字dyt-server-demo（服务注册名字）映射成dyt
+    #mydept.path: /dyt/**
+
+
